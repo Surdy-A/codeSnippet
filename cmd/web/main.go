@@ -61,8 +61,7 @@ func main() {
 		Handler:  app.routes(),
 	}
 	infoLog.Printf("Starting server on %s", *addr)
-	err = srv.ListenAndServe()
-
+	err = srv.ListenAndServeTLS("/home/surdyhey/code/snippetbox/tls/cert.pem", "/home/surdyhey/code/snippetbox/tls/key.pem")
 	errorLog.Fatal(err)
 }
 
