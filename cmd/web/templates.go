@@ -12,13 +12,15 @@ import (
 )
 
 type templateData struct {
-	CurrentYear int
-	Form        *forms.Form
-	Snippet     *models.Snippet
-	Snippets    []*models.Snippet
-	FormData    url.Values
-	FormErrors  map[string]string
-	Flash       string
+	AuthenticatedUser int
+	CSRFToken         string
+	CurrentYear       int
+	Form              *forms.Form
+	Snippet           *models.Snippet
+	Snippets          []*models.Snippet
+	FormData          url.Values
+	FormErrors        map[string]string
+	Flash             string
 }
 
 func humanDate(t time.Time) string {

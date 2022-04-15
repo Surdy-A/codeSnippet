@@ -20,11 +20,6 @@ func (app *application) notFound(w http.ResponseWriter) {
 	app.clientError(w, http.StatusNotFound)
 }
 
-// func (app *application) addDefaultData(td *templateData, r *http.Request) *template {
-// 	if td == nil {
-// 		td = &templateData{}
-// 	}
-// 	td.CurrentYear = time.Now().Year()
-// 	td.Flash = app.session.PopString(r, "flash")
-// 	return td
-// }
+func (app *application) authenticatedUser(r *http.Request) int {
+	return app.session.GetInt(r, "userID")
+}
