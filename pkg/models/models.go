@@ -6,9 +6,15 @@ import (
 )
 
 var (
-	ErrNoRecord           = errors.New("models: no matching record found")
+	ErrNoRecord = errors.New("models: no matching record found")
+
+	// ErrInvalidCredentials error is used if a user tries
+	// to login with an incorrect email address or password.
 	ErrInvalidCredentials = errors.New("models: invalid credentials")
-	ErrDuplicateEmail     = errors.New("models: duplicate email")
+
+	// ErrDuplicateEmail error is used if a user tries to signup
+	// with an email address that's already in use.
+	ErrDuplicateEmail = errors.New("models: duplicate email")
 )
 
 type Snippet struct {
@@ -20,9 +26,10 @@ type Snippet struct {
 }
 
 type User struct {
-	ID             int
-	Name           string
-	Email          string
-	HashedPassword []byte
-	Created        time.Time
+	ID       int
+	Name     string
+	Email    string
+	hashedPw []byte
+	Created  time.Time
+	Active   bool
 }
