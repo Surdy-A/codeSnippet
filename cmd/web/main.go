@@ -49,7 +49,6 @@ func main() {
 	godotenv.Load(".env")
 	mysqlPw := os.Getenv("SNIPPETBOX_MYSQL_PW")
 	pw := fmt.Sprintf("root:%s@/snippetbox?parseTime=true", mysqlPw)
-	//root:Goodman8349**@/snippetbox?parseTime=true
 
 	addr := flag.String("addr", ":4000", "HTTP network address")
 	dsn := flag.String("dsn", pw, "MySQL data source name")
